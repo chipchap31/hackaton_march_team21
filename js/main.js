@@ -14,8 +14,7 @@ function generateCards() {
                     </div>
                 </div>
             `)
-        }
-        console.log(data.floats[0])
+        }        
         }).fail(function () {
             console.log("An error has occurred.");
         });
