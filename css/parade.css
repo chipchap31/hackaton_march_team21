@@ -3,3 +3,9 @@
     height: 45vw;
     object-fit: cover;
 }
+
+@media (max-width: 575.98px) {
+    .card-img-top {
+        height: 60vw;
+    }
+}
