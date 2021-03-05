@@ -1,6 +1,0 @@
-"""
-Developed by: Jomari Alang
-"""
-
-
-
