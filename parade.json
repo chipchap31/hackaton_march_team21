@@ -2,26 +2,31 @@
   "floats": [
     {
       "name": "John Doe",
+      "country": "Ireland",
       "image": "https://www.irishtimes.com/polopoly_fs/1.3824661.1552497679!/image/image.jpg_gen/derivatives/box_1200_630/image.jpg",
       "message": "Happy St Patrick's Day!"      
     },
     {
       "name": "Mary Smith",
+      "country": "Germany",
       "image": "https://www.shamrockeradventures.com/media/14828/st-patrciks-day-tours-mobile.jpg?anchor=center&mode=crop&rnd=132192357100000000",
       "message": "Have a great day!"      
     },
     {
       "name": "Supervalu",
+      "country": "Ireland",
       "image": "https://cf-images.eu-west-1.prod.boltdns.net/v1/jit/4221396001/f7b10f7b-3a37-4b3a-8659-8e8438b39921/main/1280x720/59s466ms/match/image.jpg",
       "message": "Greetings from Supervalu"      
     },
     {
       "name": "Egg",
-      "image": "https://www.irishtimes.com/polopoly_fs/1.3824661.1552497679!/image/image.jpg_gen/derivatives/box_1200_630/image.jpg",
+      "country": "USA",
+      "image": "https://pbs.twimg.com/profile_images/482980960258908160/XawV_qBz_400x400.jpeg",
       "message": "It's a jumping off point."      
     },
     {
       "name": "Sweet Dee",
+      "country": "Canada",
       "image": "https://external-preview.redd.it/8Rzj3TN_BaZ5rqoWGz799K9-w8ZMiwaPhnYVWNQcUiE.jpg?auto=webp&s=e7034460cab0303de18cabd7edbf7259a440c244",
       "message": "Come on down to Paddy's!"      
     }
