@@ -1,1 +1,2 @@
-env/Lib
+env/Lib/
+__pycache__/
