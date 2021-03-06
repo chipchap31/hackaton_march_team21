@@ -22,3 +22,9 @@ class ParadeModel:
 
         collection.insert_one(self.default)
         
+
+    def feth_all(self):
+        collection = self.client[PARADE_COLLECTION]
+        docs = collection.find({})
+        
+        return 
