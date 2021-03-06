@@ -1,13 +1,9 @@
 from flask import Flask, request, Response
-from .views.quizzes_view import quizzes_blueprint
-from .views.auth_view import auth_blueprint
-from .views.main import main_blueprint
 from .services.s3bucket import S3Bucket
-
-
-
-
-
+from .views.quizzes_view import quizzes_view
+from .views.main_view import main_view
+from .views.parade_view import parade_view
+from .Mailer import mail
 
 
 def create_app(env='dev'): 
@@ -19,11 +15,10 @@ def create_app(env='dev'):
 
     
     
-    app.register_blueprint(main_blueprint)
-
-    
-    app.register_blueprint(quizzes_blueprint)
-    app.register_blueprint(auth_blueprint)
+    app.register_blueprint(main_view)
+    app.register_blueprint(quizzes_view)
+    app.register_blueprint(parade_view)
+    mail.init_app(app)
     # url can be change if you want 
     # make sure you make the same changes on the front-end 
     @app.route('/upload', methods=['POST'])

@@ -4,27 +4,48 @@ PARADE_COLLECTION = 'parades'
 
 
 
-class ParadeModel:
+class ParadeModel(Database):
 
     def __init__(self) -> None:
         self.default = {
-            '_user_id': '',
+            'name': '', 
+            'country': '',
+            'email': '',
             'message': '',
-            'img_url': ''
+            'image': '',
+            'created_at': datetime.now()
         }
 
 
-    def insert_one(self, data_to_insert):
+    def create(self, data_to_insert):
         
         collection = self.client[PARADE_COLLECTION]
-        self.default.update(data_to_insert)
-        
 
-        collection.insert_one(self.default)
-        
+      
 
-    def feth_all(self):
+        if self.fetch_one(data_to_insert['email']): 
+            raise Exception(f'{data_to_insert["email"]} already exist')
+        else: 
+
+            self.default.update(data_to_insert)
+            doc = collection.insert_one(self.default)
+            
+            return doc.inserted_id 
+
+    def fetch_one(self, email):
+
         collection = self.client[PARADE_COLLECTION]
-        docs = collection.find({})
-        
-        return 
+
+
+        doc = collection.find_one({'email': email})
+
+        return doc
+       
+            
+            
+            
+
+    def destroy_one(cookie_id):
+
+        pass
+
