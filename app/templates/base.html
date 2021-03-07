@@ -10,11 +10,35 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/parade.css')}}">
 </head>
 <body>
-    <ul>
-        <li><a href="/">home</a></li>
-        <li><a href="{{url_for('quizzes_view.get_quizzes')}}">quizzes</a></li>
-        <li><a href="{{url_for('parade_view.parade_main')}}">Parade</a></li>
-    </ul>
+   
+        
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a class="header-home active" href="/">Home</a>
+                    </li>
+                    <li>
+                        <a class="header-history" href="/history">History</a>
+                    </li>
+                    <li>
+                        <a class="header-shamrock" href="/">                        
+                            <img src="https://www.pngfind.com/pngs/b/128-1282716_shamrocks-png.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header-quiz" href="/quizzes">Quiz</a>
+                    </li>
+                    <li>
+                        <a class="header-parade" href="/parade">Parade</a>
+                    </li>
+                </ul>
+            </nav>
+    
+            <div class="hero-image"></div>
+    
+        </header>
+  
     {% block content %}
     {% endblock %}
 
@@ -26,5 +50,31 @@
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
     <script src="{{url_for('static', filename='scripts/main.js')}}"></script>
+    <footer>
+        <ul>
+            <li>
+                <a target="_blank" href="https://www.facebook.com">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://www.instagram.com">
+                    <i class="fab fa-instagram-square"></i>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://www.twitter.com">
+                    <i class="fab fa-twitter-square"></i>
+                </a>
+            </li>
+        </ul>
+
+        <p> Copyright (c) 2021 | Code Institute | Hackathon March | Team 21 </p>
+
+        <!-- <div id="footer-made-with-love">
+            Made with Love by Dovile K, Jomarialang31, joseph shahin, Tom Naylor, JOSIF ALI, Sean Gilleece
+        </div> -->
+
+    </footer>
 </body>
 </html>
