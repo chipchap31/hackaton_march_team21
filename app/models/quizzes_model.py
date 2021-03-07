@@ -5,19 +5,18 @@ QUIZZES_COLLECTION = 'quizzes'
 class QuizzesModel(Database): 
     def __init__(self):
 
-        self.default = {'quizzes':[
-            {
+        self.default = {
             'question': '',
             'correctAnswer': 'a',
             'options': 
                 {
-                    'a': 'Lorem Ipsum doner kebab mixed kebab',
-                    'b': 'Lorem Ipsum doner kebab mixed kebab',
-                    'c': 'Lorem Ipsum doner kebab mixed kebab'
+                    'a': '',
+                    'b': '',
+                    'c': ''
                 }
             }
             
-        ]}
+        
 
     
     def fetch_all(self):
@@ -33,8 +32,11 @@ class QuizzesModel(Database):
 
 
 
-    def insert_one(self):
+    def create(self, data):
         collection = self.client[QUIZZES_COLLECTION]
+
+        self.default.update(data)
+
         doc = collection.insert_one(self.default)
 
-        print(doc.inserted_id)
+        return doc.inserted_id
