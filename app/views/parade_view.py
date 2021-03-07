@@ -35,7 +35,7 @@ def parade_register():
         token = serializer.dumps(data_to_dump,salt='email-confirm')
         msg.html = f"""<html>
                         <body> 
-                        <p>Hello {data['first_name']},</p>
+                        <p>Hello {data['name']},</p>
                         
                       
 
