@@ -13,16 +13,16 @@
 
             
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">{{quiz['options']['a']}}</label>
+                    <input class="form-check-input" type="radio" name="question{{loop.index}}" id="id-a-{{loop.index}}" value="a">
+                    <label class="form-check-label" for="id-a-{{loop.index}}">{{quiz['options']['a']}}</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">{{quiz['options']['b']}}</label>
+                    <input class="form-check-input" type="radio" name="question{{loop.index}}" id="id-b-{{loop.index}}" value="b">
+                    <label class="form-check-label" for="id-a-{{loop.index}}">{{quiz['options']['b']}}</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
-                    <label class="form-check-label" for="inlineRadio3">{{quiz['options']['c']}}</label>
+                    <input class="form-check-input" type="radio" name="question{{loop.index}}" id="id-c-{{loop.index}}" value="c" >
+                    <label class="form-check-label" for="id-a-{{loop.index}}">{{quiz['options']['c']}}</label>
                   </div>
             </div>
         {% endfor %}
