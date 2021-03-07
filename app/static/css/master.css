@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Sansita+Swashed:wght@700;900&display=swap');
+
+
+* { 
+    margin:0; 
+    padding:0;
+    box-sizing: border-box;
+ }
+
+
+/* BODY STYLE */
+body { 
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    padding-bottom:100px;
+    position: relative;
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20210104/pngtree-green-color-shamrock-seamless-pattern-image_530174.jpg");
+    background-size: 23%;   
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,80,0,0.8);
+}
+
+
+/* CONTAINER FOOR ALL CONTENT INC. HEADER, BODY AND FOOTER */
+#body-container {
+    min-width:500px;
+    max-width:1200px;
+    margin:0 auto;
+    position: relative;   
+    overflow: hidden;
+    -webkit-box-shadow: 0px 20px 50px 0 #000;
+    -moz-box-shadow: 0px 20px 50px 0 #000;
+    box-shadow: 0px 20px 50px 0 #000;
+
+}
+
+
+
+
+/* HEADER STYLE */
+header {
+    width: 100%;
+    height:500px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* CURVE BELOW THE HERO IMAGE */
+header .hero-image:after {
+    content: '';
+    position: absolute;
+    bottom: -110px;
+    left: 0;
+    height: 210px;
+    width: 100%;
+    background: #fff;
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    user-select: none;
+    border-top: 5px solid rgb(6, 75, 6);
+    -webkit-box-shadow: inset 0 20px 20px -20px #ccc;
+    -moz-box-shadow: inset 0 20px 20px -20px #ccc;
+    box-shadow: inset 0 20px 20px -20px #ccc;
+}
+
+
+
+
+/* HERO IMAGE */
+header .hero-image {
+    background: url("https://www.irishtimes.com/polopoly_fs/1.4205111.1584460006!/image/image.jpg_gen/derivatives/ratio_16x9_w1200/image.jpg");
+    background-size: 1200px;
+    background-position: center -60px;
+    background-repeat: no-repeat;
+    height:100%;
+    width:130%;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: -15%;
+    
+}
+
+
+/* MAIN NAVIGATION BAR */
+/* GREEN OPAQUE NAV BAR */
+header nav:after {
+    content: '';
+    position: absolute;
+    top: 70px; left: -50%;
+    width: 200%;
+    height:510px;
+    padding-bottom: 0;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+    box-shadow: 1px -1px 1px 110px rgba(0, 130, 0, 0.7);
+    z-index: 20;
+    border-top: 5px solid rgb(6, 75, 6);
+}
+
+header ul {
+    position: relative;
+    top: 20px;
+    margin:0 auto;
+    display:block;
+    text-align: center;
+    list-style: none;
+    z-index:999;
+}
+
+header ul li { 
+    display: inline-block;
+    width:18%;
+    position: relative;
+}
+header ul li a { 
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    display:inline-block;
+    font-weight:700;
+    font-size: 20px;
+    position: relative;
+    color:#fff;
+    text-decoration: none;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+
+}
+
+
+header nav a:hover {
+    color:rgb(6, 75, 6);
+    text-decoration: none;
+}
+
+.header-home {
+    top:25px;
+    transform: rotate(-6deg);
+}
+.header-parade {
+    top:25px;
+    transform: rotate(6deg);
+}
+.header-history {
+    top:10px;
+    transform: rotate(-3deg);
+}
+
+.header-quiz {
+    top:10px;
+    transform: rotate(3deg);
+}
+.header-shamrock {
+    top:-25px;
+    left:0;
+    right:0;
+    position:absolute;
+}
+
+.header-shamrock img {
+    height:60px;
+}
+
+.header-hamburger-shamrock {
+    display: none;
+}
+
+
+
+
+
+
+/*------------------------------ MAIN CONTENT CONTAINER ------------------------------*/
+#main-content-container {
+    background: #ffffff;
+    position: relative;
+}
+
+
+#main-content {
+    position: relative;
+    top: -70px;
+    min-height:500px;
+    padding:0 10px;
+}
+
+
+#main-content h1,
+#main-content h2 {
+    font-family: 'Sansita Swashed', cursive;
+    position: relative;
+    top:-20px;
+    text-align: center;
+    font-size: 50px;
+    letter-spacing: 1px;
+    color: rgb(6, 75, 6);
+    font-weight:700;
+}
+
+
+#main-content h2 {
+    top:0;
+    text-align: left;
+    font-size: 30px;
+    letter-spacing: 0px;
+    padding:15px 0;
+}
+
+#main-content p {
+    padding:15px 0;
+    text-align: justify;
+}
+
+
+/*------------------------------ FOOTER ------------------------------*/
+footer {
+    background-color: rgb(19, 112, 4);
+    width:100%;
+    border-top: 5px solid rgb(6, 75, 6);
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+footer ul {
+    list-style-type: none;
+}
+
+
+footer ul li {
+    display: inline-block;
+    padding: 0 50px;
+}
+
+
+footer ul li a i {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding:11px 0;
+    border: 3px solid #054305;
+    font-size: 22px;
+    text-align: center;
+    color: #fafafa;
+    background-color: rgb(6, 75, 6);
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+
+}
+
+footer ul li a i.fa-facebook-square:hover {
+    background: #3D548E;
+    background: linear-gradient(120deg, #3b5998, #fff);
+}
+footer ul li a i.fa-instagram-square:hover {
+    background: #C80174;
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
+footer ul li a i.fa-twitter-square:hover {
+    background: #34B3F7;
+    background: linear-gradient(45deg, #66757f, #00ACEE, #36D8FF, #f5f8fa, #ffffff);
+}
+
+
+footer p {
+    margin-top: 20px;
+    text-transform: uppercase;
+    color: rgb(53,45,46);
+}
+
+#footer-made-with-love {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight:600;
+    padding-top:10px;
+    background: linear-gradient(90deg, #f83d3d , #db8102);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: right;
+    padding-right:10px;
+}
+
+
+
+/* MOBILE SCREENS <= 600px */
+@media only screen and (max-width: 600px) { 
+    
+    /* BODY STYLE */
+    body { 
+        padding-bottom:0;
+        background-image: none;
+    }
+
+
+    /* CONTAINER FOR ALL CONTENT INC. HEADER, BODY AND FOOTER */
+    #body-container {
+        min-width:100%;
+        max-width:100%;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+
+    /* MOBILE HEADER AND NAV */  
+    header ul {
+        top: 0;
+        display: none;
+  }
+
+    header ul li { 
+        text-align: left;
+        display:block;
+        width:100%;
+        position: relative;
+  }
+
+    .header-home,
+    .header-parade,
+    .header-history,
+    .header-quiz {
+        z-index:99;
+        position: relative;
+        top:130px;
+        left:-20px;
+        transform: rotate(-20deg);
+        background-color: rgba(0, 130, 0, 0.7);
+        width:220px;
+        padding:10px 0 10px 40px;
+        margin:5px 0;
+        border:3px solid rgb(6, 75, 6);
+        border-radius: 1px;
+
+    }
+     .header-shamrock {
+        display:none;
+    }
+
+    
+    .header-hamburger-shamrock {
+        display: block;
+        top:15px;
+        right:20px;
+        position:absolute;
+        z-index:9999;
+}
+
+    .header-hamburger-shamrock img {
+        width:60px;
+    }
+ 
+
+
+
+    
+ }
+
+
+/*
+    // Extra small devices (portrait phones, less than 576px)
+    @media (max-width: 575.98px) { ... }
+
+    // Small devices (landscape phones, 576px and up)
+    @media (min-width: 576px) and (max-width: 767.98px) { ... }
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) and (max-width: 991.98px) { ... }
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) and (max-width: 1199.98px) { ... }
+
+    // Extra large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) { ... }
+*/
+
+
+
+
+
+
+/* ---------------------------------------- PARADE CSS -------------------------- */
+.card-img-top {
+    width: 100%;
+    height: 45vw;
+    object-fit: cover;
+}
+
+.leave-btn {
+    position: fixed; 
+    bottom: 20px; 
+    left: 20px;
+    background-image: none;
+    z-index: 9999;
+}
+
+.leave-btn:hover {    
+    background-color: orange;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 75px;
+    width: 75px;    
+}
+
+@media (max-width: 575.98px) {
+    .card-img-top {
+        height: 60vw;
+    }
+}
+
+.parade-carousel{
+    min-height: 90vh;
+}

@@ -6,12 +6,12 @@ from .views.parade_view import parade_view
 from .Mailer import mail
 
 
-def create_app(env='dev'): 
+def create_app(): 
 
     app = Flask(__name__)
 
      
-    app.config.from_pyfile(f'./config/config.{env}.py')
+    app.config.from_pyfile(f'./config.py')
 
     
     

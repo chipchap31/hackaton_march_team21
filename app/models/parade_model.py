@@ -1,5 +1,8 @@
+from app.services.s3bucket import S3Bucket
+
 from ..DB import Database
 from datetime import datetime
+from bson.objectid import ObjectId
 PARADE_COLLECTION = 'parades'
 
 
@@ -24,7 +27,7 @@ class ParadeModel(Database):
       
 
         if self.fetch_one(data_to_insert['email']): 
-            raise Exception(f'{data_to_insert["email"]} already exist')
+            return False
         else: 
 
             self.default.update(data_to_insert)
@@ -32,17 +35,28 @@ class ParadeModel(Database):
             
             return doc.inserted_id 
 
-    def fetch_one(self, email):
+    def fetch_all(self):
+        collection = self.client[PARADE_COLLECTION]
+        doc_list = []
+        for doc in collection.find({}):
 
+            doc_list.append({**doc, '_id': str(doc['_id'])})
+
+   
+        return doc_list
+    
+    def fetch_one(self, email):
         collection = self.client[PARADE_COLLECTION]
 
+        
 
-        doc = collection.find_one({'email': email})
-
-        return doc
-       
+        return collection.find_one({'email': email})
+   
             
-            
+    def change_one(self, data):
+        collection = self.client[PARADE_COLLECTION]
+        newvalues = { "$set": { "image": data['image']} }
+        collection.update_one({'_id': ObjectId(data['parade_id'])}, newvalues)
             
 
     def destroy_one(cookie_id):
