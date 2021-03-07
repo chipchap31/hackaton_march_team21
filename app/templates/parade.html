@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-</header>
+<div id="main-content-container">
+    <section id="main-content">
+        <h1>Parade</h1>
 <div class=" container-fluid px-0">
+    
     <div id="carouselExampleControls " class="carousel slide" data-ride="carousel">
         <div id="parade-cards parade-carousel" class="carousel-inner" style=" background-image: url('https://i.pinimg.com/originals/ef/23/8b/ef238b5a703395ae88807b1e5eb4c5ad.jpg');" role="listbox">
             <div class="carousel-item active">
@@ -28,5 +31,7 @@
 
 <a class="btn btn-light btn-lg leave-btn" href="index.html" role="button">Leave Parade</a>
 
+</section>
+</div>
 
 {% endblock %}
