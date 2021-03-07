@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Confirmed Email Page</h1>
+
+<form enctype="multipart/form-data" action='/parade/upload' method='POST'>
+    <input type="text" name='country'>
+    <input type="file" name="file">
+    <textarea>Message</textarea> 
+    <button type="submit">Upload</button>
+</form>
+{% endblock %}
