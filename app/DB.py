@@ -1,13 +1,11 @@
 import pymongo
 import os
-
-
-
+from . import config
 
 
 
 class Database:
     
     # file out of app context, so just we just use the os module     
-    client = pymongo.MongoClient(os.getenv('MONGO_URI'))[os.getenv('MONGO_DATABASE')]
+    client = pymongo.MongoClient(config.MONGO_URI)[config.MONGO_DATABASE]
 

@@ -8,8 +8,7 @@ from flask_mail import Message
 from ..Mailer import mail
 from itsdangerous import URLSafeSerializer
 import os
-import json
-
+from ..config import MAIL_USERNAME,HOST
 
 serializer = URLSafeSerializer(os.getenv('SECRET_KEY'))
 
@@ -27,7 +26,7 @@ def parade_register():
         data =request.form.to_dict()
         
 
-        msg = Message('Confirm your email',sender=os.getenv('EMAIL_SENDER'),
+        msg = Message('Confirm your email',sender=MAIL_USERNAME,
                   recipients=[data['email']])
 
         data_to_dump = {
@@ -106,7 +105,7 @@ def parade_upload():
                 'parade_id': parade_id
             })
 
-            return redirect('/')
+            return redirect('/parade')
         except Exception as e:
 
             print(e)

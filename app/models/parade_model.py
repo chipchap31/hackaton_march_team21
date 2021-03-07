@@ -45,6 +45,12 @@ class ParadeModel(Database):
    
         return doc_list
     
+    def fetch_one(self, email):
+        collection = self.client[PARADE_COLLECTION]
+
+        
+
+        return collection.find_one({'email': email})
    
             
     def change_one(self, data):
