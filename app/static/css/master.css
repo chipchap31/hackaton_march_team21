@@ -423,7 +423,10 @@ footer p {
 .parade-carousel{
     min-height: 90vh;
 }
-/* Quiz styling*/
+
+
+
+/* ----------------------------------------------- Quiz styling*/
 
 :root {
   --hue-neutral: 120;
@@ -455,9 +458,7 @@ div .style{
   width: 800px;
   max-width: 80%;
   background-color: white;
-  border-radius: 5px;
   padding: 10px;
-  box-shadow: 0 0 10px 2px;
 }
 
 .btn-grid {
