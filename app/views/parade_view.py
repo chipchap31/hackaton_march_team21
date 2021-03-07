@@ -68,7 +68,7 @@ def parade_confirm(token):
         
         data_id = ParadeModel().create({**data})
         
-        resp = make_response(jsonify(data), 200)
+        resp = make_response(data, 200)
 
         resp.set_cookie('parade_id', data_id)
 
