@@ -191,13 +191,13 @@ header nav a:hover {
 
 
 /*------------------------------ MAIN CONTENT CONTAINER ------------------------------*/
-#main-content-container {
+.main-content-container {
     background: #ffffff;
     position: relative;
 }
 
 
-#main-content {
+.main-content {
     position: relative;
     top: -70px;
     min-height:500px;
@@ -205,7 +205,7 @@ header nav a:hover {
 }
 
 
-#main-content h1 {
+.main-content h1 {
     font-family: 'Sansita Swashed', cursive;
     position: relative;
     top:-20px;
@@ -321,4 +321,8 @@ footer p {
     .card-img-top {
         height: 60vw;
     }
+}
+
+.parade-carousel{
+    min-height: 90vh;
 }
