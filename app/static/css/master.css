@@ -140,6 +140,7 @@ header ul li a {
 
 header nav a:hover {
     color:rgb(6, 75, 6);
+    text-decoration: none;
 }
 
 .header-home {
