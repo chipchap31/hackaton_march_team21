@@ -44,36 +44,42 @@
             <div class="hero-image"></div>
     
         </header>
-            
-    {% block content %}
-    {% endblock %}
 
-    <footer>
-        <ul>
-            <li>
-                <a target="_blank" href="https://www.facebook.com">
-                    <i class="fab fa-facebook-square"></i>
-                </a>
-            </li>
-            <li>
-                <a target="_blank" href="https://www.instagram.com">
-                    <i class="fab fa-instagram-square"></i>
-                </a>
-            </li>
-            <li>
-                <a target="_blank" href="https://www.twitter.com">
-                    <i class="fab fa-twitter-square"></i>
-                </a>
-            </li>
-        </ul>
 
-        <p> Copyright (c) 2021 | Code Institute | Hackathon March | Team 21 </p>
+        <div id="main-content-container">
+            <section id="main-content">
+                {% block content %}
+                {% endblock %}
+            </section>
+        </div>
 
-        <!-- <div id="footer-made-with-love">
-            Made with Love by Dovile K, Jomarialang31, joseph shahin, Tom Naylor, JOSIF ALI, Sean Gilleece
-        </div> -->
 
-    </footer>
+        <footer>
+            <ul>
+                <li>
+                    <a target="_blank" href="https://www.facebook.com">
+                        <i class="fab fa-facebook-square"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.instagram.com">
+                        <i class="fab fa-instagram-square"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.twitter.com">
+                        <i class="fab fa-twitter-square"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <p> Copyright (c) 2021 | Code Institute | Hackathon March | Team 21 </p>
+
+            <!-- <div id="footer-made-with-love">
+                Made with Love by Dovile K, Jomarialang31, joseph shahin, Tom Naylor, JOSIF ALI, Sean Gilleece
+            </div> -->
+
+        </footer>
 
 </div>
 

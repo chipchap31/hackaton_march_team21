@@ -1,11 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div id="main-content-container">
-    <section id="main-content">
-        <h1>Quizzes</h1>
+    <h1>Quizzes</h1>
 
-        <form>
+    <form>
         {% for quiz in quizzes%}
             <div>
                 
@@ -27,6 +25,5 @@
             </div>
         {% endfor %}
     </form>
-    </section>
-</div>
-{% endblock %}
+
+    {% endblock %}
