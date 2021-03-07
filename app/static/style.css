@@ -88,22 +88,6 @@ header .hero-image:after {
 }
 
 
-/* GREEN OPAQUE NAV BAR */
-header nav:after {
-    content: '';
-    position: absolute;
-    top: 70px; left: -50%;
-    width: 200%;
-    height:510px;
-    padding-bottom: 0;
-    border-top-right-radius: 50%;
-    border-top-left-radius: 50%;
-    box-shadow: 1px -1px 1px 110px rgba(17, 216, 17, 0.6);
-    z-index: 20;
-    border-top: 5px solid rgb(6, 75, 6);
-}
-
-
 
 
 /* HERO IMAGE */
@@ -123,9 +107,24 @@ header .hero-image {
 
 
 /* MAIN NAVIGATION BAR */
+/* GREEN OPAQUE NAV BAR */
+header nav:after {
+    content: '';
+    position: absolute;
+    top: 70px; left: -50%;
+    width: 200%;
+    height:510px;
+    padding-bottom: 0;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+    box-shadow: 1px -1px 1px 110px rgba(0, 130, 0, 0.7);
+    z-index: 20;
+    border-top: 5px solid rgb(6, 75, 6);
+}
+
 header ul {
     position: relative;
-    top: 0px;
+    top: 20px;
     margin:0 auto;
     display:block;
     text-align: center;
@@ -177,18 +176,21 @@ header nav a:hover {
     transform: rotate(3deg);
 }
 .header-shamrock {
-    top:25px;
+    top:-25px;
+    left:0;
+    right:0;
+    position:absolute;
 }
 
 .header-shamrock img {
-    height:50px;
+    height:60px;
 }
 
 
 
 
 
-/* MAIN CONTENT CONTAINER */
+/*------------------------------ MAIN CONTENT CONTAINER ------------------------------*/
 #main-content-container {
     background: #ffffff;
     position: relative;
@@ -198,7 +200,7 @@ header nav a:hover {
 #main-content {
     position: relative;
     top: -70px;
-    min-height:calc(100vh);
+    min-height:500px;
     padding:0 10px;
 }
 
@@ -217,13 +219,13 @@ header nav a:hover {
 
 
 
-/* FOOTER */
+/*------------------------------ FOOTER ------------------------------*/
 footer {
     background-color: rgb(19, 112, 4);
     width:100%;
     border-top: 5px solid rgb(6, 75, 6);
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 
 
@@ -234,7 +236,7 @@ footer ul {
 
 footer ul li {
     display: inline-block;
-    padding: 5px 50px;
+    padding: 0 50px;
 }
 
 
@@ -243,7 +245,7 @@ footer ul li a i {
     height: 50px;
     border-radius: 50%;
     padding:11px 0;
-    border: 3px solid rgba(0,0,0,0.1);
+    border: 3px solid #054305;
     font-size: 22px;
     text-align: center;
     color: #fafafa;
@@ -257,22 +259,25 @@ footer ul li a i {
 
 footer ul li a i.fa-facebook-square:hover {
     background: #3D548E;
+    background: linear-gradient(120deg, #3b5998, #fff);
 }
 footer ul li a i.fa-instagram-square:hover {
     background: #C80174;
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
 }
 footer ul li a i.fa-twitter-square:hover {
     background: #34B3F7;
+    background: linear-gradient(45deg, #66757f, #00ACEE, #36D8FF, #f5f8fa, #ffffff);
 }
-
 
 
 footer p {
-    margin-top: 10px;
+    margin-top: 20px;
+    text-transform: uppercase;
     color: rgb(53,45,46);
 }
 
-#made-with-love {
+#footer-made-with-love {
     font-size: 10px;
     text-transform: uppercase;
     font-weight:600;
