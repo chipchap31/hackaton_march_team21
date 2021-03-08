@@ -286,6 +286,10 @@ footer p {
     color: rgb(53,45,46);
 }
 
+footer p a {
+    color: rgb(53,45,46);
+}
+
 #footer-made-with-love {
     font-size: 10px;
     text-transform: uppercase;
