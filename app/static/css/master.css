@@ -15,7 +15,8 @@ body {
     padding-bottom:100px;
     position: relative;
     background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20210104/pngtree-green-color-shamrock-seamless-pattern-image_530174.jpg");
-    background-size: 23%;   
+    background-size: 23%;  
+    height:100vh; 
 }
 body::before {
     content: "";
