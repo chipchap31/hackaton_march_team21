@@ -1,4 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Quizzes Page</h1>
+
+<style>
+    header .hero-image { 
+        background-image: url("https://i.ytimg.com/vi/055Les7-Cwo/maxresdefault.jpg");
+        background-position: center -110px;
+    }
+</style>
+
+
+<h1>Quizzes</h1>
+
+
+<div class="container mt-5">
+    <div id="question-container" class="hide">
+      <div id="question">Question</div>
+      <div id="answer-buttons" class="btn-grid">
+        <button class="btn">Answer 1</button>
+        <button class="btn">Answer 2</button>
+        <button class="btn">Answer 3</button>
+        <button class="btn">Answer 4</button>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="start-btn" class="start-btn btn">Start</button>
+      <button id="next-btn" class="next-btn btn hide">Next</button>
+    </div>
+  </div>
+
 {% endblock %}

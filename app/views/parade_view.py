@@ -9,6 +9,7 @@ from ..Mailer import mail
 from itsdangerous import URLSafeSerializer
 import os
 from ..config import MAIL_USERNAME,HOST
+import webbrowser
 
 serializer = URLSafeSerializer(os.getenv('SECRET_KEY'))
 
@@ -16,16 +17,18 @@ parade_view = Blueprint('parade_view', __name__)
 
 @parade_view.route('/parade')
 def parade_main():
+    parade_exist = request.cookies.get('parade_id')
 
-    return render_template('parade.html')
+    return render_template('parade.html', parade_exist=parade_exist)
 
 
 @parade_view.route('/parade/join', methods=['POST'])
 def parade_register():
     if request.method == 'POST':
-        data =request.form.to_dict()
-        
-
+        data=request.form.to_dict()
+        if data['email'] == '' or data['country'] == '' or data['name'] == '' or data['message'] == '':
+            flash('All fields are required')
+            return render_template('parade.html')
         msg = Message('Confirm your email',sender=MAIL_USERNAME,
                   recipients=[data['email']])
 
@@ -54,7 +57,7 @@ def parade_register():
 
 
         mail.send(msg)
-        return request.form.get('email')
+        return render_template('check_email.html')
 
     return render_template('parade.html')
 
@@ -94,7 +97,7 @@ def parade_fetch():
 def parade_upload():
     parade_id = request.cookies.get('parade_id')
 
-    print(parade_id)
+
     if request.method == 'POST':
         files = request.files['file']
        
@@ -105,8 +108,16 @@ def parade_upload():
                 'parade_id': parade_id
             })
 
-            return redirect('/parade')
+            return redirect('/parade/watch')
         except Exception as e:
 
-            print(e)
+       
 
+            return Response(e, 500)
+
+
+@parade_view.route('/parade/watch')
+def parade_watch():
+    
+
+    return render_template('parade-watch.html', parades=ParadeModel().fetch_all())

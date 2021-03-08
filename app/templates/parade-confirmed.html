@@ -1,11 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Confirmed Email Page</h1>
+<h1>Upload your image</h1>
 
-<form enctype="multipart/form-data" action='/parade/upload' method='POST'>
-    <input type="text" name='country'>
-    <input type="file" name="file">
-    <textarea>Message</textarea> 
-    <button type="submit">Upload</button>
+<form action='/parade/upload' enctype="multipart/form-data" method="POST" >
+    <div class="container ">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-6">
+            <div class="form-group">
+                <label for="id-file">Upload your image here</label>
+                <input type="file" name="file" class="form-control-file" id="id-file">
+              </div>
+           
+              <button type="submit" class="btn btn-primary">Upload Now</button>
+          </div>
+         
+        </div>
+
+       
+      </div>
+   
 </form>
 {% endblock %}

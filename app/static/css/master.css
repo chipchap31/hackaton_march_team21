@@ -207,7 +207,11 @@ header nav a:hover {
     font-weight:700;
 }
 
-
+ h3 {
+    font-family: 'Sansita Swashed', cursive;
+    font-size: 24px;
+    color: rgb(6, 75, 6);
+}
 #main-content h2 {
     top:0;
     text-align: left;
@@ -422,4 +426,87 @@ footer p {
 
 .parade-carousel{
     min-height: 90vh;
+}
+
+
+
+/* ----------------------------------------------- Quiz styling*/
+
+:root {
+  --hue-neutral: 120;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+}
+
+div .style{
+  --hue: var(--hue-neutral);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--hue), 70%, 20%);
+}
+
+.correct {
+  --hue: var(--hue-correct);
+}
+
+.wrong {
+  --hue: var(--hue-wrong);
+}
+
+.container {
+  width: 800px;
+  max-width: 80%;
+  background-color: white;
+  padding: 10px;
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.btn {
+  --hue: var(--hue-neutral);
+  border: 1px solid hsl(var(--hue), 100%, 30%);
+  background-color: hsl(var(--hue), 100%, 50%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  outline: none;
+}
+
+.btn:hover {
+  border-color: black;
+}
+
+.btn.correct {
+  --hue: var(--hue-correct);
+  color: black;
+}
+
+.btn.wrong {
+  --hue: var(--hue-wrong);
+}
+
+.start-btn, .next-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
 }

@@ -13,3 +13,10 @@ def index():
 
 
     return render_template('index.html')
+
+
+
+@main_view.route('/history')
+def history():
+
+    return render_template('history.html')

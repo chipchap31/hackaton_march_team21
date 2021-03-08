@@ -1,30 +1,72 @@
 {% extends "base.html" %}
 {% block content %}
-</header>
-<div class=" container-fluid px-0">
-    <div id="carouselExampleControls " class="carousel slide" data-ride="carousel">
-        <div id="parade-cards parade-carousel" class="carousel-inner" style=" background-image: url('https://i.pinimg.com/originals/ef/23/8b/ef238b5a703395ae88807b1e5eb4c5ad.jpg');" role="listbox">
-            <div class="carousel-item active">
-                <div class="d-flex align-items-center justify-content-center min-vh-100">
-                    <div class="card" style="width: 60%;">
-                        <img src="https://media.istockphoto.com/vectors/happy-st-patricks-day-hand-drawn-lettering-vector-illustration-vector-id1198103283?k=6&m=1198103283&s=612x612&w=0&h=IYkeJa4q3MZj1gZGUdZx36YUrGBDXKtm1B7Sfkc2HYI=" class="card-img-top" alt="Happy St Patrick's day image">
-                        <div class="card-body">
-                            <p class="card-text text-center">Happy St. Patrick's day from CI Hackathon Team 21!</p>
-                        </div>
-                    </div>
+
+
+<h1>Parade</h1>
+
+
+
+<form action='/parade/join' method="POST" >
+
+   
+    <div class="container mt-5">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+     
+            {% for message in messages %}
+         
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+              </div>
+            {% endfor %}
+          
+        {% endif %}
+        {% endwith %}
+        <div class="row d-flex {{'justify-content-between' if not parade_exist else 'justify-content-center'}} ">
+            {% if not parade_exist %}
+            <div class="col-md-5">
+                <p>Fill the form below to join the virtual parade:</p>
+
+              <div class="mb-3">
+                  <label for="id-name" class="form-label">Full Name</label>
+                  <input name="name" type="text" class="form-control" id="id-name" placeholder="John Doe">
                 </div>
-            </div>                         
+              <div class="mb-3">
+                  <label for="id-email" class="form-label">Email address</label>
+                  <input name='email' type="email" class="form-control" id="id-email" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="id-country" class="form-label">Country</label>
+                    <input name='country' type="text" class="form-control" id="id-country" placeholder="Your Country">
+                  </div>
+                <div class="mb-3">
+                  <label for="id-message" class="form-label">Your Message</label>
+                  <textarea
+                  
+                  name="message" 
+                  class="form-control" 
+                  id="id-message" 
+                  rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Join Now</button>
+            </div>
+
+            {% endif %}
+          
+          <div class="col-md-5 d-flex align-items-center justify-content-center">
+            <div class="d-flex flex-column align-items-center">
+                <h3>Watch the parade</h3>
+                <a class="btn btn-primary" href="/parade/watch">Watch</a>
+            </div>
+           
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</div>
+         
+        </div>
+
+       
+      </div>
+   
+</form>
 
 <a class="btn btn-light btn-lg leave-btn" href="index.html" role="button">Leave Parade</a>
 
