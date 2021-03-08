@@ -190,7 +190,7 @@ header nav a:hover {
 #main-content {
     position: relative;
     top: -70px;
-    min-height:500px;
+    min-height:300px;
     padding:0 10px;
 }
 
