@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1>Parade</h1>
+
+
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner" style="background-image: url('https://i.pinimg.com/originals/ef/23/8b/ef238b5a703395ae88807b1e5eb4c5ad.jpg');" role="listbox">
+      <div class="carousel-item active">
+        <div class="d-flex align-items-center justify-content-center min-vh-100">
+            <div class="card" style="width: 60%;">
+                <img src="https://media.istockphoto.com/vectors/happy-st-patricks-day-hand-drawn-lettering-vector-illustration-vector-id1198103283?k=6&m=1198103283&s=612x612&w=0&h=IYkeJa4q3MZj1gZGUdZx36YUrGBDXKtm1B7Sfkc2HYI=" class="card-img-top" alt="Happy St Patrick's day image">
+                <div class="card-body">
+                    <p class="card-text text-center">Happy St. Patrick's day from CI Hackathon Team 21!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+      {% for parade in parades%}
+      <div class="carousel-item">
+        <div class="d-flex align-items-center justify-content-center min-vh-100">
+            <div class="card" style="width: 60%;">
+                <img src="{{ parade['image']}}" class="card-img-top" alt="${data.floats[i].name}'s image">
+                <div class="card-body">
+                    <p class="card-text text-center">{{parade['name']}} from {{parade['country']}} says: {{parade['message']}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+      {% endfor%}
+      
+
+    </div>
+    <span class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </span>
+    <span class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </span>
+  </div>
+
+<a class="btn btn-light btn-lg leave-btn" href="index.html" role="button">Leave Parade</a>
+
+
+{% endblock %}

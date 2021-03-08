@@ -207,7 +207,11 @@ header nav a:hover {
     font-weight:700;
 }
 
-
+ h3 {
+    font-family: 'Sansita Swashed', cursive;
+    font-size: 24px;
+    color: rgb(6, 75, 6);
+}
 #main-content h2 {
     top:0;
     text-align: left;
