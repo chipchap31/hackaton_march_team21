@@ -113,7 +113,7 @@ def parade_upload():
 
        
 
-            return Response('e', 500)
+            return Response(e, 500)
 
 
 @parade_view.route('/parade/watch')
