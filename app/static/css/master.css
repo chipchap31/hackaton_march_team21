@@ -223,6 +223,8 @@ header nav a:hover {
 #main-content p {
     padding:15px 0;
     text-align: justify;
+    margin-bottom:0;
+    margin:0;
 }
 
 
