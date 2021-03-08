@@ -1,3 +1,4 @@
+from pymongo import collection
 from app.services.s3bucket import S3Bucket
 
 from ..DB import Database
@@ -26,7 +27,7 @@ class ParadeModel(Database):
 
       
 
-        if self.fetch_one(data_to_insert['email']): 
+        if self.fetch_one(email=data_to_insert['email']): 
             return False
         else: 
 
@@ -45,12 +46,19 @@ class ParadeModel(Database):
    
         return doc_list
     
-    def fetch_one(self, email):
-        collection = self.client[PARADE_COLLECTION]
+    def fetch_one(self, email='', id=''):
 
         
+        collection = self.client[PARADE_COLLECTION]
 
-        return collection.find_one({'email': email})
+        if email != '': 
+            return collection.find_one({'email': email})
+        elif id != '':
+            return collection.find_one({'_id': ObjectId(id)})
+
+        else: 
+
+            raise ValueError('No argument provided')
    
             
     def change_one(self, data):
@@ -58,8 +66,15 @@ class ParadeModel(Database):
         newvalues = { "$set": { "image": data['image']} }
         collection.update_one({'_id': ObjectId(data['parade_id'])}, newvalues)
             
+        return True
+    def destroy_one(self,cookie_id):
 
-    def destroy_one(cookie_id):
+        collection = self.client[PARADE_COLLECTION]
+        try:
 
-        pass
+            collection.delete_one({ "_id": ObjectId(cookie_id) })
+            return True
+        except:
 
+            return False
+                

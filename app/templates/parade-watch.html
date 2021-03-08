@@ -30,7 +30,7 @@
       <div class="carousel-item">
         <div class="d-flex align-items-center justify-content-center min-vh-100">
             <div class="card" style="width: 60%;">
-                <img src="{{ parade['image']}}" class="card-img-top" alt="${data.floats[i].name}'s image">
+                <img src="{{ parade['image']}}" class="card-img-top" alt="{{parade['name']}}'s image">
                 <div class="card-body">
                     <p class="card-text text-center">{{parade['name']}} from {{parade['country']}} says: {{parade['message']}}</p>
                 </div>
@@ -51,6 +51,7 @@
     </span>
   </div>
 
+<a class="btn btn-light btn-lg leave-btn" href="/parade/leave" role="button">Leave Parade</a>
 
 
 {% endblock %}
