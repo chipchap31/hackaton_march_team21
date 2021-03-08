@@ -14,35 +14,12 @@ def create_app():
     app.config.from_pyfile(f'./config.py')
 
     
-    
+    # Define middlewares here
     app.register_blueprint(main_view)
     app.register_blueprint(quizzes_view)
     app.register_blueprint(parade_view)
     mail.init_app(app)
-    # url can be change if you want 
-    # make sure you make the same changes on the front-end 
-    @app.route('/upload', methods=['POST'])
-    def upload():
-        """
-        This is just a placeholder
-        """
-
-        if request.method == 'POST':
-
-            files = request.files['file']
-
-          
-    
-          
-
-
-            
-               
-               
-
-            return Response(S3Bucket().upload(files), 200)
-            
-            
+  
 
 
     return app

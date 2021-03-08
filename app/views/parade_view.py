@@ -1,3 +1,4 @@
+from bson.objectid import ObjectId
 from flask import Blueprint, json,render_template, jsonify, flash, make_response
 from flask.globals import request
 from flask.wrappers import Response
@@ -9,7 +10,7 @@ from ..Mailer import mail
 from itsdangerous import URLSafeSerializer
 import os
 from ..config import MAIL_USERNAME,HOST
-import webbrowser
+import logging
 
 serializer = URLSafeSerializer(os.getenv('SECRET_KEY'))
 
@@ -76,7 +77,7 @@ def parade_confirm(token):
 
         resp = make_response(render_template('parade-confirmed.html'), 200)
 
-        resp.set_cookie('parade_id', str(data_id).encode())
+        resp.set_cookie('parade_id', str(data_id).encode(), max_age=30*24*60*60*1000)
 
         return resp
     else: 
@@ -121,3 +122,33 @@ def parade_watch():
     
 
     return render_template('parade-watch.html', parades=ParadeModel().fetch_all())
+
+
+
+
+@parade_view.route('/parade/leave')
+def parade_leave():
+    parade_id = request.cookies.get('parade_id')
+    
+
+    try:
+
+        find_parade = ParadeModel().fetch_one(id=ObjectId(parade_id))
+
+        
+        
+        S3Bucket().delete_obj(img_url=find_parade['image'])
+        
+        ParadeModel().destroy_one(cookie_id=parade_id)
+        resp = make_response(redirect('/'))
+
+        resp.delete_cookie('parade_id')
+
+
+        return resp
+
+
+    except Exception as e:
+
+        logging.error(e)
+        return Response('', 500)
