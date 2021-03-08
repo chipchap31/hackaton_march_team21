@@ -111,7 +111,9 @@ def parade_upload():
             return redirect('/parade/watch')
         except Exception as e:
 
-            print(e)
+       
+
+            return Response('e', 500)
 
 
 @parade_view.route('/parade/watch')
