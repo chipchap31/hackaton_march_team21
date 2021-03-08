@@ -2,7 +2,10 @@ from flask.globals import session
 import boto3
 from werkzeug.utils import secure_filename
 from os import path, remove
-from flask import current_app
+
+import urllib.parse as urlparse
+from ..config import AWS_BUCKET_NAME, AWS_ACCESS_KEY, AWS_SECRET_KEY
+
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 MEDIA_FOLDER = 'media/'
 
@@ -16,8 +19,8 @@ class S3Bucket:
     def __init__(self):
      
      
-        self.session = boto3.session.Session(aws_access_key_id=current_app.config['AWS_ACCESS_KEY'],
-            aws_secret_access_key=current_app.config['AWS_SECRET_KEY']
+        self.session = boto3.session.Session(aws_access_key_id=AWS_ACCESS_KEY,
+            aws_secret_access_key=AWS_SECRET_KEY
         )
             
    
@@ -35,7 +38,7 @@ class S3Bucket:
         
             s3_resource = self.session.resource('s3')
 
-            bucket = s3_resource.Bucket(current_app.config['AWS_BUCKET_NAME'])
+            bucket = s3_resource.Bucket(AWS_BUCKET_NAME)
 
             bucket.upload_file(Filename=f'{MEDIA_FOLDER}{secure_file}', Key=f'{MEDIA_FOLDER}{secure_file}')
             
@@ -44,7 +47,7 @@ class S3Bucket:
                 # remove the file
                 remove(f'{MEDIA_FOLDER}{secure_file}')
 
-                return f'https://{current_app.config["AWS_BUCKET_NAME"]}.s3-eu-west-1.amazonaws.com/{MEDIA_FOLDER}{secure_file}'
+                return f'https://{AWS_BUCKET_NAME}.s3-eu-west-1.amazonaws.com/{MEDIA_FOLDER}{secure_file}'
             else:
                 raise Exception(f'Error: {secure_file} does not exist.')
 
@@ -52,4 +55,25 @@ class S3Bucket:
 
             raise Exception('File type is not allowed')
 
+  
+    def delete_obj(self, img_url=''):
 
+        try:
+            parsed = urlparse.urlparse(img_url)
+            print(str(parsed.path[1:]))
+            s3_resource = self.session.resource('s3')
+
+            bucket = s3_resource.Bucket(AWS_BUCKET_NAME)
+            response = bucket.delete_objects(
+            Delete={
+                'Objects': [
+                    {
+                        'Key': str(parsed.path[1:])
+                    },
+                ],
+                'Quiet': True
+            }
+        
+        )
+        except: 
+            raise Exception('Fail to destroy image from AWS')

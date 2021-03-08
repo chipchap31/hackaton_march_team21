@@ -1,13 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
+<style>
+    header {
+        height:170px;
+    }
+ @media only screen and (max-width: 600px) { 
+
+    header ul {
+        position: fixed;
+    }
+ }
+</style>
 
 <h1>Parade</h1>
 
 
 
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner" style="background-image: url('https://i.pinimg.com/originals/ef/23/8b/ef238b5a703395ae88807b1e5eb4c5ad.jpg');" role="listbox">
+    <div class="carousel-inner" style="background-image: url('https://www.thesun.ie/wp-content/uploads/sites/3/2020/03/NINTCHDBPICT000002637094.jpg');" role="listbox">
       <div class="carousel-item active">
         <div class="d-flex align-items-center justify-content-center min-vh-100">
             <div class="card" style="width: 60%;">
@@ -22,7 +33,7 @@
       <div class="carousel-item">
         <div class="d-flex align-items-center justify-content-center min-vh-100">
             <div class="card" style="width: 60%;">
-                <img src="{{ parade['image']}}" class="card-img-top" alt="${data.floats[i].name}'s image">
+                <img src="{{ parade['image']}}" class="card-img-top" alt="{{parade['name']}}'s image">
                 <div class="card-body">
                     <p class="card-text text-center">{{parade['name']}} from {{parade['country']}} says: {{parade['message']}}</p>
                 </div>
@@ -35,15 +46,15 @@
     </div>
     <span class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
+      <span class="visually-hidden"></span>
     </span>
     <span class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
+      <span class="visually-hidden"></span>
     </span>
   </div>
 
-<a class="btn btn-light btn-lg leave-btn" href="index.html" role="button">Leave Parade</a>
+<a class="btn btn-light btn-lg leave-btn" href="/parade/leave" role="button">Leave Parade</a>
 
 
 {% endblock %}
